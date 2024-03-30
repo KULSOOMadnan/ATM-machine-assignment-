@@ -5,9 +5,9 @@
 
 <h1>Features✨</h1>
 <ul>
-  <li><b>cash withdrawals</b>User can withdraw cash from their accounts.</li>
-  <li><b>Fast deposite</b>User can quickly deposite their amount from this feature</li>
-  <li><b>balance inquiries</b>User can check their account balances.</li>
+  <li><b>cash withdrawals</b> User can withdraw cash from their accounts.</li>
+  <li><b>Fast deposite</b> User can quickly deposite their amount from this feature</li>
+  <li><b>balance inquiries</b> User can check their account balances.</li>
 </ul>
 
 <h2>npm usage🚀</h2>
