@@ -1,7 +1,9 @@
 #! /usr/bin/env node 
 import inquirer from "inquirer";
+import chalk from "chalk";
 // current balaance 
-let myBalance = 500000;
+console.log(chalk.bold.yellowBright("\t\t\t------WELCOME TO ATM-----\t\t\t\n"));
+let myBalance = 50000;
 let myPin = 1767;
 let pinCode = await inquirer.prompt([
     {
@@ -12,7 +14,7 @@ let pinCode = await inquirer.prompt([
 ]);
 //checking of pincode 
 if (pinCode.Pin == myPin) {
-    console.log("correct Pin Code... ");
+    console.log(chalk.greenBright("\ncorrect Pin Code... \n"));
     // if pin is correct then this will run 
     let depositionWay = await inquirer.prompt([
         {
@@ -25,10 +27,9 @@ if (pinCode.Pin == myPin) {
     // if check balance selected 
     if (depositionWay.desirableWay == "Account Balance Check") {
         // will print this
-        console.log(`Your Current balance is ${myBalance}`);
+        console.log(chalk.yellowBright(`Your Current balance is ${myBalance}`));
     }
-    else if (depositionWay.desirableWay == "Withdraw") // if withdraw selected 
-     {
+    else if (depositionWay.desirableWay == "Withdraw") { // if withdraw selected 
         let amount = await inquirer.prompt({
             name: "AmountNO",
             type: "number",
@@ -36,27 +37,32 @@ if (pinCode.Pin == myPin) {
         });
         if (amount.AmountNO > myBalance) // if user  ask amount beyond its  account balance 
          {
-            console.log(`SORRY..!! You have insufficient balance.. `); // will print this 
+            console.log(chalk.redBright(`SORRY..!! You have insufficient balance.. `)); // will print this 
         }
         else // else print it 
          {
             let presentAmount = myBalance -= amount.AmountNO;
-            console.log(`Your remaining balance is : ${presentAmount}`);
+            console.log(chalk.rgb(78, 87, 90)(`Your remaining balance is : ${presentAmount}`));
         }
     }
     else if (depositionWay.desirableWay == "Fast deposite") {
         let multipleAmount = await inquirer.prompt([
             {
-                name: "multiAmount",
+                name: "fast",
                 type: "list",
                 message: "please select the withdraw Amount ",
-                choices: ["5000$", "2000$", "10000$", "8000$"],
+                choices: ["5000", "2000", "10000", "8000", "3000", "780000"],
             }
         ]);
-        console.log(` Take your cash : ${multipleAmount.multiAmount} $ `);
+        if (multipleAmount.fast <= myBalance) {
+            console.log(chalk.green(` Take your cash : ${multipleAmount.fast} $ `));
+        }
+        else {
+            console.log(chalk.red("\t'non-sufficient funds...'"));
+        }
     }
-    console.log("THANK YOu! ");
+    console.log(chalk.magenta("\n\t\tTHANK YOu!\t\t"));
 }
 else {
-    console.log("Incorrect Pin Code ");
+    console.log(chalk.bold.red("Incorrect Pin Code "));
 }
