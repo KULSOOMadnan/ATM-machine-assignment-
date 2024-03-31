@@ -11,7 +11,7 @@
 </ul>
 
 <h2>npm usage🚀</h2>
-<p>You can also install my ATM from npm command is <b>npm i automated-teller-machine_project</b> and you can  also run it on <b>CLI</b> its command is  <b>npx automated-teller-machine_project</b></p>
+<p>You can also install my ATM from npm command is <b>"npm i automated-teller-machine_project"</b> and you can  also run it on <b>CLI</b> its command is  <b>"npx automated-teller-machine_project"</b></p>
 
 <h2>pin code📌</h2>
 <p>When you run my code in npx it will required pin so pin is <b>1767</b></p>
