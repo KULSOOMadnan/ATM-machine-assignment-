@@ -4,7 +4,7 @@ import inquirer from "inquirer"
 import chalk from "chalk"
 // current balaance 
 
-console.log(chalk.bold.yellowBright("\n\t\t\t---------WELCOME TO ATM---------\t\t\t\n") );
+console.log(chalk.bold.cyanBright.bold("\n\t\t\t--------------WELCOME TO KULSOOM'S  ATM-------------\t\t\t\n") );
 
 let myBalance = 50000;
 
@@ -15,7 +15,7 @@ let pinCode = await inquirer.prompt(
         {
             name : "Pin",
             type : "number",
-            message : chalk.blue("please insert Your pin ")
+            message : chalk.magenta("please insert Your pin ")
 
         }
     ]
@@ -32,7 +32,7 @@ if(pinCode.Pin == myPin){
         {
             name : "desirableWay",
             type : "list",
-            message : chalk.blue("please choose one option.."),
+            message : chalk.magenta("please choose one option.."),
             choices : ["Account Balance Check", "Withdraw", "Fast deposite"] // ask about desirable withdraw 
         }
     ]
@@ -41,7 +41,7 @@ if(pinCode.Pin == myPin){
     if (depositionWay.desirableWay ==  "Account Balance Check"){
        
     // will print this
-      console.log(chalk.yellowBright(`\nYour Current balance is ${myBalance}`));
+      console.log(chalk.yellowBright(`Your Current balance is ${myBalance}`));
 
     }
     else if (depositionWay.desirableWay == "Withdraw"){ // if withdraw selected 
@@ -49,7 +49,7 @@ if(pinCode.Pin == myPin){
             {
                 name : "AmountNO",
                 type : "number",
-                message : chalk.blue("\nHow much amount you want to withdraw ") // ask the  withdraw amount 
+                message : chalk.magenta("\nHow much amount you want to withdraw ") // ask the  withdraw amount 
 
             }
         )
@@ -62,7 +62,7 @@ if(pinCode.Pin == myPin){
             {
                     
                     let presentAmount = myBalance -= amount.AmountNO
-                    console.log(chalk.rgb(78,87,90)(`\nYour remaining balance is : ${presentAmount}`));
+                    console.log(chalk.rgb(0,255,0)(`\nYour remaining balance is : ${presentAmount}`));
             }
             
     }
@@ -85,16 +85,16 @@ if(pinCode.Pin == myPin){
 
          }else{
 
-            console.log(chalk.red("\t'non-sufficient funds...'"));
+            console.log(chalk.red("\t' Error : non-sufficient funds...'"));
             
          }
 
     }
-           console.log(chalk.magenta("\n\t\tTHANK YOu!\t\t"))
+           console.log(chalk.bold.cyan("\n\t\t~~~~~~~~~THANK YOu!~~~~~~~~~\t\t"))
         
 }   
 
 else {
-    console.log(chalk.bold.red("\n\tIncorrect Pin Code "));
+    console.log(chalk.bold.red("\n\tError : Incorrect Pin Code "));
     
 }
